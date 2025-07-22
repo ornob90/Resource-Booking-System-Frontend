@@ -1,7 +1,7 @@
 "use client";
 import useOutsideClick from "@/hooks/useOutsideClick";
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
 export type Option = {

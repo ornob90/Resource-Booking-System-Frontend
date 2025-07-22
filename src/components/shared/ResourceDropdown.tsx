@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-empty-object-type */
 import React from "react";
-import Select, { Option, SelectProps } from "./Select";
+import Select, { Option } from "./Select";
 
 const resources: Option[] = [
   { show: "Projector", value: "Projector" },

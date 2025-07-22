@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 export const structureQuery = (
   queryParams: Record<string, string>,
   queryKey: string,

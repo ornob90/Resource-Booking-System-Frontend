@@ -13,6 +13,27 @@ import React from "react";
 
 const LIMIT = 10;
 
+export async function generateStaticParams() {
+  const staticParams: { status: string; page: string }[] = [];
+
+  for (const tab of tabs) {
+    const status = tab.name;
+
+    const { totalPages } = await getBookings({
+      page: 1,
+      limit: LIMIT,
+      resource: undefined,
+      date: undefined,
+    });
+
+    for (let page = 1; page <= totalPages; page++) {
+      staticParams.push({ status, page: page.toString() });
+    }
+  }
+
+  return staticParams;
+}
+
 const Page = async ({ searchParams }: PageProps) => {
   const queryParams = await searchParams;
   const page = parseInt(queryParams?.page || "1", 10);
@@ -56,7 +77,7 @@ const Page = async ({ searchParams }: PageProps) => {
           <Tab status={status} />
           <AddBookingBtn />
         </div>
-        <section className="space-y-2">
+        <section className=" flex flex-col gap-y-2">
           <BookingFilters />
           <BookingsTable bookings={paginatedBookings} />
           <BookingTablePagination

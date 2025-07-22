@@ -1,7 +1,6 @@
 import { Booking } from "@/types/booking.types";
 import React, { ReactNode } from "react";
 import DeleteBookingBtn from "./DeleteBookingBtn";
-import { QueryParamsType } from "@/types/global.types";
 import { formatDateToDisplay } from "@/utils/date.utils";
 import BookingStatus from "./BookingStatus";
 

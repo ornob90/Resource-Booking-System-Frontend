@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { structureQuery } from "@/utils/query-params.utils";
-import Link from "next/link";
 import React from "react";
 import NextLink from "../shared/NextLink";
 

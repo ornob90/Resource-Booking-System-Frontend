@@ -1,26 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import { motion } from "framer-motion";
 import React from "react";
 
-const dropIn = {
-  hidden: {
-    y: "-100vh",
-  },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.1,
-      type: "spring",
-      damping: 25,
-      stiffness: 500,
-    },
-  },
-  exit: {
-    y: "100vh",
-  },
-};
 
 interface ModalProps {
   onClose?: () => void;

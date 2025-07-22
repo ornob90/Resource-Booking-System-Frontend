@@ -2,7 +2,6 @@ import { bookingTableHeaders } from "@/data/bookings.data";
 import React from "react";
 import BookingRow from "./BookingRow";
 import { Booking } from "@/types/booking.types";
-import { QueryParamsType } from "@/types/global.types";
 import NoBookings from "./NoBookings";
 
 interface BookingsTableProps {
