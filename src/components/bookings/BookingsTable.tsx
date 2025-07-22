@@ -3,8 +3,7 @@ import React from "react";
 import BookingRow from "./BookingRow";
 import { Booking } from "@/types/booking.types";
 import { QueryParamsType } from "@/types/global.types";
-
-
+import NoBookings from "./NoBookings";
 
 interface BookingsTableProps {
   bookings: Booking[];
@@ -13,18 +12,24 @@ interface BookingsTableProps {
 const BookingsTable = ({ bookings = [] }: BookingsTableProps) => {
   //   const bookings = dummyBookings;
 
-    // console.log('bookings in table', bookings) 
+  // console.log('bookings in table', bookings)
 
   return (
     <section className="px-6 py-3 shadow-sm border  border-gray-200 bg-gray-50 rounded-xl">
       <BookingTableHeader />
-      {bookings.map((booking, index) => (
-        <BookingRow
-          key={booking.id}
-          booking={booking as unknown as Booking}
-          rowNo={index + 1}
-        />
-      ))}
+      {!bookings || bookings?.length === 0 ? (
+        <NoBookings />
+      ) : (
+        <>
+          {bookings.map((booking, index) => (
+            <BookingRow
+              key={booking.id}
+              booking={booking as unknown as Booking}
+              rowNo={index + 1}
+            />
+          ))}
+        </>
+      )}
     </section>
   );
 };

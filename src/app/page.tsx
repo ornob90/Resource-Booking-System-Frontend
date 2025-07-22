@@ -5,6 +5,7 @@ import BookingTablePagination from "@/components/bookings/BookingTablePagination
 import Tab from "@/components/bookings/Tab";
 import Navbar from "@/components/navbar/Navbar";
 import { tabs } from "@/data/bookings.data";
+import { Booking } from "@/types/booking.types";
 import { PageProps } from "@/types/global.types";
 import { getBookingStatus } from "@/utils/booking.utils";
 import React from "react";
@@ -20,10 +21,12 @@ const Page = async ({ searchParams }: PageProps) => {
     hasNextPage,
   } = await getBookings({});
 
-  const bookings = dbBookings?.map((b) => ({
-    ...b,
-    status: getBookingStatus(b?.startTime, b?.endTime),
-  }));
+  const bookings = dbBookings
+    ?.map((b) => ({
+      ...b,
+      status: getBookingStatus(b?.startTime, b?.endTime),
+    }))
+    ?.filter((b: Booking) => status === "All" || status === b?.status);
 
   // console.log('queryParams', queryParams)
 

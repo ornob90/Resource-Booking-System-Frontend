@@ -5,4 +5,5 @@ export interface Booking {
   endTime: string;
   requestedBy: string;
   createdAt: Date;
+  status: "Ongoing" | "Past" | "Upcoming"
 }
