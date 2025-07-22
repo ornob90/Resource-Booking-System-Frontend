@@ -6,6 +6,7 @@ import axios from "axios";
 import { ImSpinner9 } from "react-icons/im";
 import Modal from "../shared/Modal";
 import BookingCalendar from "./BookingChalender";
+import { getTimezone } from "@/actions/globals.actions";
 
 const CheckAvailableSlots = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,11 +16,13 @@ const CheckAvailableSlots = () => {
   const handleCheck = async () => {
     setLoading(true);
     try {
+      const timezone = await getTimezone()
       const currentTime = new Date().toISOString();
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}/bookings/available-slots`,
         {
           currentTime,
+          timezone
         }
       );
 

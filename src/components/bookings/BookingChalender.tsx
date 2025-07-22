@@ -2,8 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { useCalendarApp, ScheduleXCalendar } from "@schedule-x/react";
-import { createViewDay } from "@schedule-x/calendar";
-import { createEventsServicePlugin } from "@schedule-x/events-service";
+import { createViewDay, createViewWeek } from "@schedule-x/calendar";
+import { createEventsServicePlugin,  } from "@schedule-x/events-service";
 import "@schedule-x/theme-default/dist/index.css";
 import moment from "moment";
 
@@ -27,12 +27,13 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ slots }) => {
   const calendarApp = useCalendarApp({
     views: [
       createViewDay(),
-      //   createViewWeek(),
+        // createViewWeek(),
+        
       //   createViewMonthAgenda(),
     ],
     events: slots.map((slot, idx) => ({
       id: idx,
-      title: slot.resource,
+      title: "Available",
       start: moment(slot.start).format("YYYY-MM-DD HH:mm"),
       end: moment(slot.end).format("YYYY-MM-DD HH:mm"),
     })),
@@ -40,15 +41,16 @@ const BookingCalendar: React.FC<BookingCalendarProps> = ({ slots }) => {
     callbacks: {
       onRender: () => eventsService.getAll(),
     },
+    
   });
 
   useEffect(() => {
-    eventsService.getAll();
+    console.log('eventsService.getAll()', eventsService.getAll());
   }, [eventsService, slots]);
 
   return (
     <div className="sx-react-calendar-wrapper w-full h-[700px]">
-      <ScheduleXCalendar calendarApp={calendarApp} />
+      <ScheduleXCalendar calendarApp={calendarApp}  />
     </div>
   );
 };
