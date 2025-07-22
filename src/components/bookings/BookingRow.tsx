@@ -1,6 +1,8 @@
 import { Booking } from "@/types/booking.types";
 import React, { ReactNode } from "react";
 import DeleteBookingBtn from "./DeleteBookingBtn";
+import { QueryParamsType } from "@/types/global.types";
+import { formatDateToDisplay } from "@/utils/date.utils";
 
 interface BookingRowProps {
   booking: Booking;
@@ -15,11 +17,11 @@ const BookingRow = ({ booking, rowNo }: BookingRowProps) => {
         value={`${booking.requestedBy}`}
         className=" justify-start col-span-3"
       />
-      <BookingCell value={booking.startTime} className=" col-span-3" />
-      <BookingCell value={booking.endTime} className=" col-span-2" />
-      <BookingCell value={"Ongoing"} className="  col-span-2" />
+      <BookingCell value={formatDateToDisplay(booking.startTime)} className=" col-span-3" />
+      <BookingCell value={formatDateToDisplay(booking.endTime)} className=" col-span-2" />
+      <BookingCell value={booking?.status} className="  col-span-2" />
       <BookingCell
-        value={<DeleteBookingBtn />}
+        value={<DeleteBookingBtn bookingId={booking.id} />}
         className="  col-span-1 pl-4"
       />
     </section>
@@ -39,5 +41,8 @@ function BookingCell({
     </div>
   );
 }
+
+
+
 
 export default BookingRow;

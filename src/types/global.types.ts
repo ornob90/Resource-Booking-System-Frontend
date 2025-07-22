@@ -6,3 +6,6 @@ export interface PageProps {
   searchParams: SearchParams;
   params: Params;
 }
+
+
+export type QueryParamsType = Record<string, string>

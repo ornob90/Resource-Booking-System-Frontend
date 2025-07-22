@@ -27,13 +27,20 @@ interface ModalProps {
   children: React.ReactNode;
   className?: string;
   id?: string;
+  disabledOutsideClick?: boolean;
 }
 
-const Modal: React.FC<ModalProps> = ({ onClose, children, className, id }) => {
+const Modal: React.FC<ModalProps> = ({
+  onClose,
+  children,
+  className,
+  id,
+  disabledOutsideClick,
+}) => {
   return (
     <motion.div
       className="fixed inset-0 z-50 flex h-screen w-full items-center justify-center bg-black/30"
-      onClick={() => onClose?.()}
+      onClick={() => !disabledOutsideClick && onClose?.()}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

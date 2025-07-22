@@ -1,7 +1,10 @@
-import { bookingTableHeaders, dummyBookings } from "@/data/bookings.data";
+import { bookingTableHeaders } from "@/data/bookings.data";
 import React from "react";
 import BookingRow from "./BookingRow";
 import { Booking } from "@/types/booking.types";
+import { QueryParamsType } from "@/types/global.types";
+
+
 
 interface BookingsTableProps {
   bookings: Booking[];

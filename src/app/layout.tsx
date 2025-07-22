@@ -1,5 +1,6 @@
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Providers from "@/providers/Providers";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -13,7 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${poppins.className}  antialiased`}>
-        <section className=" mx-auto max-w-display-width">{children}</section>
+        <section className=" mx-auto max-w-display-width">
+          <Providers>{children}</Providers>
+        </section>
       </body>
     </html>
   );
