@@ -14,12 +14,12 @@ const BookingRow = ({ booking, rowNo }: BookingRowProps) => {
   return (
     <section className=" grid grid-cols-12 py-2">
       <BookingCell value={`${rowNo}`} className=" col-span-1" />
-      <BookingCell value={booking?.resource} className=" col-span-2" />
-
       <BookingCell
         value={`${booking.requestedBy}`}
         className=" justify-start col-span-2"
       />
+      <BookingCell value={booking?.resource} className=" col-span-2" />
+
       <BookingCell
         value={formatDateToDisplay(booking.startTime)}
         className=" col-span-2"

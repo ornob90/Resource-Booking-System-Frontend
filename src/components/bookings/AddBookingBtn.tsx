@@ -11,6 +11,7 @@ import toast from "react-hot-toast";
 import { revalidateTagServerAction } from "@/actions/globals.actions";
 import { structureQuery } from "@/utils/query-params.utils";
 import axios from "axios";
+import ResourceDropdown from "../shared/ResourceDropdown";
 
 type BookingFormInputs = {
   resource: string;
@@ -19,28 +20,21 @@ type BookingFormInputs = {
   requestedBy: string;
 };
 
-const resources = [
-  "Meeting Room A",
-  "Meeting Room B",
-  "Conference Hall",
-  "Lab 1",
-  "Lab 2",
-];
-
 const AddBookingBtn = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [resource, setResource] = useState("");
   const { register, handleSubmit, reset } = useForm<BookingFormInputs>();
 
   const searchParams = useSearchParamsObject();
 
   const onSubmit = async (data: BookingFormInputs) => {
-    const { resource, startTime, endTime, requestedBy } = data;
+    const { startTime, endTime, requestedBy } = data;
 
     const start = new Date(startTime);
     const end = new Date(endTime);
 
-    const durationInMinutes = (end.getTime() - start.getTime()) / (1000 * 60);
+    // const durationInMinutes = (end.getTime() - start.getTime()) / (1000 * 60);
 
     // if (start >= end) {
     //   toast.error("Start time must be earlier than end time");
@@ -102,7 +96,12 @@ const AddBookingBtn = () => {
 
       <AnimatePresence>
         {isOpen && (
-          <Modal onClose={() => setIsOpen(false)} disabledOutsideClick>
+          <Modal
+            onClose={() => {
+              setIsOpen(false);
+            }}
+            disabledOutsideClick
+          >
             <section className="space-y-4">
               <div className="flex justify-between items-center">
                 <h3 className="font-semibold text-lg">Create Booking</h3>
@@ -117,17 +116,13 @@ const AddBookingBtn = () => {
                   <label className="block mb-1 text-sm font-medium">
                     Resource
                   </label>
-                  <select
-                    {...register("resource")}
-                    className="w-full border border-gray-200 px-4 py-2 text-sm placeholder:text-sm rounded-md select-arrow"
-                  >
-                    <option value="">Select a resource</option>
-                    {resources.map((resource) => (
-                      <option key={resource} value={resource}>
-                        {resource}
-                      </option>
-                    ))}
-                  </select>
+
+                  <ResourceDropdown
+                    id="create-booking-resource"
+                    value={resource}
+                    onChange={(value) => setResource(value)}
+                    
+                  />
                 </div>
 
                 {/* Start Time */}

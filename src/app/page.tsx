@@ -1,5 +1,6 @@
 import { getBookings } from "@/actions/bookings.actions";
 import AddBookingBtn from "@/components/bookings/AddBookingBtn";
+import BookingFilters from "@/components/bookings/BookingFilters";
 import BookingsTable from "@/components/bookings/BookingsTable";
 import BookingTablePagination from "@/components/bookings/BookingTablePagination";
 import Tab from "@/components/bookings/Tab";
@@ -16,6 +17,8 @@ const Page = async ({ searchParams }: PageProps) => {
   const queryParams = await searchParams;
   const page = parseInt(queryParams?.page || "1", 10);
   const status = queryParams?.status || tabs[0].name;
+
+  // console.log('queryParams?.resource', queryParams?.resource?.replace(/\+/g, " "))
 
   // Fetch paginated bookings from server
   const { bookings: dbBookings } = await getBookings({
@@ -46,7 +49,7 @@ const Page = async ({ searchParams }: PageProps) => {
   const hasNextPage = page * LIMIT < filteredBookings.length;
 
   return (
-    <section className="space-y-4 pb-4">
+    <section className="space-y-4 pb-4" id="booking-home-page">
       <Navbar />
       <section className="space-y-4 px-[3%]">
         <div className="flex justify-between items-center">
@@ -54,6 +57,7 @@ const Page = async ({ searchParams }: PageProps) => {
           <AddBookingBtn />
         </div>
         <section className="space-y-2">
+          <BookingFilters />
           <BookingsTable bookings={paginatedBookings} />
           <BookingTablePagination
             hasNextPage={hasNextPage}
