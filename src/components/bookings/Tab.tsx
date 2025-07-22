@@ -8,12 +8,12 @@ interface TabProps {
 
 const Tab = ({ status }: TabProps) => {
   return (
-    <ul className="flex w-full items-center">
+    <ul className="flex w-full items-center max-md:max-w-full overflow-x-auto no-scrollbar">
       {tabs.map((tab) => (
         <Link
           key={tab.name}
           href={`/?status=${tab.name}`}
-          className={` px-4 border-b-2 flex justify-center items-center py-2 min-w-[116px]  duration-200 cursor-pointer ${
+          className={` px-4 border-b-2 flex justify-center text-sm items-center py-2 min-w-[116px]  duration-200 cursor-pointer ${
             status === tab?.name
               ? " font-medium  border-b-dark"
               : " border-b-white font-normal  hover:border-b-dark/60"

@@ -13,5 +13,12 @@
     @apply focus:border-gray-400 focus:outline-gray-300;
   }
 
-  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

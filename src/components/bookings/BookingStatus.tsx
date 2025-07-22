@@ -14,7 +14,7 @@ const BookingStatus = ({ status }: BookingStatusProps) => {
         backgroundColor: background,
         color: color,
       }}
-      className="px-4 py-2 rounded-full text-sm"
+      className="px-4 py-2 text-xs lg:text-sm rounded-full"
     >
       {status}
     </p>

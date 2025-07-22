@@ -51,9 +51,9 @@ const DeleteBookingBtn = ({ bookingId }: DeleteBookingBtnProps) => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="flex justify-center items-center"
+        className="flex justify-center items-center "
       >
-        <MdDeleteSweep className="text-red-500 text-2xl cursor-pointer" />
+        <MdDeleteSweep className="text-red-500 text-xl md:text-2xl cursor-pointer" />
       </button>
 
       <AnimatePresence>

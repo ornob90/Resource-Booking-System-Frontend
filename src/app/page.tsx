@@ -73,13 +73,15 @@ const Page = async ({ searchParams }: PageProps) => {
     <section className="space-y-4 pb-4" id="booking-home-page">
       <Navbar />
       <section className="space-y-4 px-[3%]">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-col gap-4  md:flex-row md:justify-between md:items-center">
           <Tab status={status} />
           <AddBookingBtn />
         </div>
         <section className=" flex flex-col gap-y-2">
           <BookingFilters />
-          <BookingsTable bookings={paginatedBookings} />
+          <section className="  max-w-full   overflow-x-auto">
+            <BookingsTable bookings={paginatedBookings} />
+          </section>
           <BookingTablePagination
             hasNextPage={hasNextPage}
             hasPrevPage={hasPrevPage}

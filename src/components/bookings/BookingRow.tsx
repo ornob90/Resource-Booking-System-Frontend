@@ -47,7 +47,7 @@ function BookingCell({
   className?: string;
 }) {
   return (
-    <div className={` text-sm flex justify-start items-center ${className}`}>
+    <div className={` text-xs lg:text-sm flex  justify-start items-center ${className}`}>
       {value}
     </div>
   );

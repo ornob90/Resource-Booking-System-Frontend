@@ -65,9 +65,9 @@ const AddBookingBtn = () => {
       );
 
       // ✅ Revalidate page=1 for current filters
-      const updatedParams = { ...searchParams, page: "1" };
+      const updatedParams = { ...searchParams, page: "1", limit: '10' };
       const tagKey = new URLSearchParams(updatedParams).toString();
-      await revalidateTagServerAction(`bookings-${tagKey}`);
+      await revalidateTagServerAction(`get-bookings`);
 
       // ✅ Update browser URL to ?...&page=1
       const url = structureQuery(searchParams, "page", "1");

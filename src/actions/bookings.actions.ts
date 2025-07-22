@@ -26,13 +26,13 @@ export async function getBookings({
   const cacheKey = `bookings-${query.toString()}`;
 
   const url = `${process.env.BASE_URL}/bookings?${query.toString()}`;
-  console.log("url", url);
+  console.log("cacheKey", cacheKey);
 
   // Use fetch with cache tags — Next.js will cache per input combo
   const res = await fetch(url, {
     method: "GET",
     next: {
-      tags: [cacheKey],
+      tags: [cacheKey, 'get-bookings'],
     },
   });
 
