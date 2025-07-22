@@ -119,7 +119,7 @@ const AddBookingBtn = () => {
                   </label>
                   <select
                     {...register("resource")}
-                    className="w-full border border-gray-200 px-4 py-2 text-sm placeholder:text-sm rounded-md"
+                    className="w-full border border-gray-200 px-4 py-2 text-sm placeholder:text-sm rounded-md select-arrow"
                   >
                     <option value="">Select a resource</option>
                     {resources.map((resource) => (

@@ -6,8 +6,9 @@ export const tabs = [
 ];
 
 export const bookingTableHeaders = [
-  { name: "Requested By", className: "col-span-3" },
-  { name: "Start Time" , className: "col-span-3"},
+  { name: "Requested By", className: "col-span-2" },
+  { name: "Resource", className: "col-span-2" },
+  { name: "Start Time" , className: "col-span-2"},
   { name: "End Time", className: "col-span-2" },
   { name: "Status", className: "col-span-2" },
   { name: "Action", className: "col-span-1" },

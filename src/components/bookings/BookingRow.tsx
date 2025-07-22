@@ -14,13 +14,24 @@ const BookingRow = ({ booking, rowNo }: BookingRowProps) => {
   return (
     <section className=" grid grid-cols-12 py-2">
       <BookingCell value={`${rowNo}`} className=" col-span-1" />
+      <BookingCell value={booking?.resource} className=" col-span-2" />
+
       <BookingCell
         value={`${booking.requestedBy}`}
-        className=" justify-start col-span-3"
+        className=" justify-start col-span-2"
       />
-      <BookingCell value={formatDateToDisplay(booking.startTime)} className=" col-span-3" />
-      <BookingCell value={formatDateToDisplay(booking.endTime)} className=" col-span-2" />
-      <BookingCell value={<BookingStatus status={booking?.status}/>} className="  col-span-2" />
+      <BookingCell
+        value={formatDateToDisplay(booking.startTime)}
+        className=" col-span-2"
+      />
+      <BookingCell
+        value={formatDateToDisplay(booking.endTime)}
+        className=" col-span-2"
+      />
+      <BookingCell
+        value={<BookingStatus status={booking?.status} />}
+        className="  col-span-2"
+      />
       <BookingCell
         value={<DeleteBookingBtn bookingId={booking.id} />}
         className="  col-span-1 pl-4"
@@ -42,8 +53,5 @@ function BookingCell({
     </div>
   );
 }
-
-
-
 
 export default BookingRow;

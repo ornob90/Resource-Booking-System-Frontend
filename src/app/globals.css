@@ -10,6 +10,8 @@
 
 @layer {
   input {
-    @apply focus:border-gray-400 focus:outline-gray-300
+    @apply focus:border-gray-400 focus:outline-gray-300;
   }
+
+  
 }
