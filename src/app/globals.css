@@ -2,6 +2,8 @@
 
 @theme {
   
+  /* Color  */
+  --color-dark: #181818;
 
   /* Spacing  */
   --spacing-display-width: 1800px;

@@ -1,0 +1,43 @@
+import { Booking } from "@/types/booking.types";
+import React, { ReactNode } from "react";
+import DeleteBookingBtn from "./DeleteBookingBtn";
+
+interface BookingRowProps {
+  booking: Booking;
+  rowNo: number;
+}
+
+const BookingRow = ({ booking, rowNo }: BookingRowProps) => {
+  return (
+    <section className=" grid grid-cols-12 py-2">
+      <BookingCell value={`${rowNo}`} className=" col-span-1" />
+      <BookingCell
+        value={`${booking.requestedBy}`}
+        className=" justify-start col-span-3"
+      />
+      <BookingCell value={booking.startTime} className=" col-span-3" />
+      <BookingCell value={booking.endTime} className=" col-span-2" />
+      <BookingCell value={"Ongoing"} className="  col-span-2" />
+      <BookingCell
+        value={<DeleteBookingBtn />}
+        className="  col-span-1 pl-4"
+      />
+    </section>
+  );
+};
+
+function BookingCell({
+  value,
+  className,
+}: {
+  value: string | ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={` text-sm flex justify-start items-center ${className}`}>
+      {value}
+    </div>
+  );
+}
+
+export default BookingRow;
