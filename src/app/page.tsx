@@ -3,6 +3,7 @@ import AddBookingBtn from "@/components/bookings/AddBookingBtn";
 import BookingFilters from "@/components/bookings/BookingFilters";
 import BookingsTable from "@/components/bookings/BookingsTable";
 import BookingTablePagination from "@/components/bookings/BookingTablePagination";
+import CheckAvailableSlots from "@/components/bookings/CheckAvailableSlots";
 import Tab from "@/components/bookings/Tab";
 import Navbar from "@/components/navbar/Navbar";
 import { tabs } from "@/data/bookings.data";
@@ -75,7 +76,10 @@ const Page = async ({ searchParams }: PageProps) => {
       <section className="space-y-4 px-[3%]">
         <div className="flex flex-col gap-4  md:flex-row md:justify-between md:items-center">
           <Tab status={status} />
-          <AddBookingBtn />
+          <div className="flex max-md:flex-col gap-4 md:flow-row  md:justify-end">
+            <CheckAvailableSlots />
+            <AddBookingBtn />
+          </div>
         </div>
         <section className=" flex flex-col gap-y-2">
           <BookingFilters />

@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
 
 "use server";
+
+import { AvailableSlotsResult } from "@/types/booking.types";
+import { getTimezone } from "./globals.actions";
 
 type GetBookingsParams = {
   page?: number;
@@ -17,6 +21,8 @@ export async function getBookings({
 }: GetBookingsParams) {
   const query = new URLSearchParams();
 
+  console.log('getTimezone()', await getTimezone())
+
   query.set("page", page.toString());
   query.set("limit", limit.toString());
 
@@ -32,7 +38,7 @@ export async function getBookings({
   const res = await fetch(url, {
     method: "GET",
     next: {
-      tags: [cacheKey, 'get-bookings'],
+      tags: [cacheKey, "get-bookings"],
     },
   });
 
@@ -46,7 +52,7 @@ export async function getBookings({
 
   const result = await res.json();
 
-//   console.log('result', result)
+  //   console.log('result', result)
 
   return {
     success: true,
@@ -54,5 +60,3 @@ export async function getBookings({
     ...(result?.data || {}),
   };
 }
-
-

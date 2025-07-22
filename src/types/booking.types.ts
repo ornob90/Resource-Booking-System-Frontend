@@ -7,3 +7,8 @@ export interface Booking {
   createdAt: Date;
   status: "Ongoing" | "Past" | "Upcoming"
 }
+
+export type AvailableSlotsResult = {
+  gaps: { start: string; end: string }[];
+  nextAvailableSlot: string;
+};

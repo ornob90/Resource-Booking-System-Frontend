@@ -91,7 +91,7 @@ const AddBookingBtn = () => {
         onClick={() => setIsOpen(true)}
         className="flex justify-center items-center gap-x-2 text-sm text-nowrap px-4 py-2 bg-dark text-white rounded-full  cursor-pointer hover:opacity-90 active:scale-95 duration-200"
       >
-        Create Booking <MdDateRange />
+        Create Booking <MdDateRange  className=" text-lg"/>
       </button>
 
       <AnimatePresence>

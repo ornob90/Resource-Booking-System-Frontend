@@ -9,6 +9,7 @@ interface ModalProps {
   className?: string;
   id?: string;
   disabledOutsideClick?: boolean;
+  removeMaxWidth?: boolean
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -17,6 +18,8 @@ const Modal: React.FC<ModalProps> = ({
   className,
   id,
   disabledOutsideClick,
+  removeMaxWidth
+  
 }) => {
   return (
     <motion.div
@@ -29,7 +32,7 @@ const Modal: React.FC<ModalProps> = ({
     >
       <motion.div
         onClick={(e) => e.stopPropagation()}
-        className={`w-[90%] sm:w-[80%] md:w-[60%] lg:w-[40%] max-w-[615px] bg-white rounded-[15px] overflow-y-auto p-6 ${
+        className={`w-[90%] sm:w-[80%] md:w-[60%] lg:w-[40%]  bg-white rounded-[15px] overflow-y-auto p-6 ${removeMaxWidth ? "" : "max-w-[615px]"} ${
           className ?? ""
         }`}
         variants={{

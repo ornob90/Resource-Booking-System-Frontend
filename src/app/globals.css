@@ -21,4 +21,11 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .sx-react-calendar-wrapper {
+    width: 800px;
+    max-width: 80vw;
+    height: 80vh;
+    max-height: 800px;
+  }
 }
