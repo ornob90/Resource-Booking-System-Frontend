@@ -14,7 +14,7 @@ const BookingsTable = ({ bookings = [] }: BookingsTableProps) => {
   // console.log('bookings in table', bookings)
 
   return (
-    <section className="px-6 py-3  min-w-[630px] shadow-sm border  border-gray-200 bg-gray-50 rounded-xl">
+    <section className="px-6 py-3  min-w-[630px] shadow-sm border  border-gray-200 bg-white rounded-xl">
       <BookingTableHeader />
       {!bookings || bookings?.length === 0 ? (
         <NoBookings />
@@ -35,10 +35,10 @@ const BookingsTable = ({ bookings = [] }: BookingsTableProps) => {
 
 function BookingTableHeader() {
   return (
-    <div className=" grid grid-cols-12  text-gray-500 text-xs md:text-sm  lg:text-base  py-2  rounded-t-lg">
+    <div className=" grid grid-cols-12  text-darkgray text-xs md:text-sm  lg:text-base  py-2  rounded-t-lg">
       <div className=" max-w-12">No.</div>
       {bookingTableHeaders.map((header) => (
-        <p key={header.name} className={`flex-1 font-medium  ${header?.className}`}>
+        <p key={header.name} className={`flex-1  tesm ${header?.className}`}>
           {header.name}
         </p>
       ))}

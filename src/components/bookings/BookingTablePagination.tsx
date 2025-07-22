@@ -27,7 +27,7 @@ const BookingTablePagination = ({
       </NextLink>
       <NextLink
         href={`/${structureQuery(queryParams, "page", `${+page - 1}`)}`}
-        className="px-4 py-2 text-sm disabled:opacity-50 bg-dark cursor-pointer text-white rounded-md hover:opacity-90 disabled:cursor-not-allowed"
+        className="px-4 py-2 text-sm disabled:opacity-50 bg-primary cursor-pointer text-white rounded-md hover:opacity-90 disabled:cursor-not-allowed"
         disabled={!hasNextPage}
       >
         Next

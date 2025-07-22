@@ -15,7 +15,7 @@ const Tab = ({ status }: TabProps) => {
           href={`/?status=${tab.name}`}
           className={` px-4 border-b-2 flex justify-center text-sm items-center py-2 min-w-[116px]  duration-200 cursor-pointer ${
             status === tab?.name
-              ? " font-medium  border-b-dark"
+              ? " font-medium  border-b-primary text-primary"
               : " border-b-white font-normal  hover:bg-gray-200 hover:rounded-lg"
           }`}
         >

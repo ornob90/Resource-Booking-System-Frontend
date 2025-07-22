@@ -93,7 +93,7 @@ const AddBookingBtn = () => {
     <>
       <button
         onClick={() => setIsOpen(true)}
-        className="flex justify-center items-center gap-x-2 text-sm text-nowrap px-4 py-2 bg-dark text-white rounded-full  cursor-pointer hover:opacity-90 active:scale-95 duration-200"
+        className="flex justify-center items-center gap-x-2 text-sm text-nowrap px-4 py-2 bg-primary text-white rounded-full  cursor-pointer hover:opacity-90 active:scale-95 duration-200"
       >
         Create Booking <MdDateRange  className=" text-lg"/>
       </button>
@@ -178,7 +178,7 @@ const AddBookingBtn = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="px-4 py-2 text-sm bg-dark cursor-pointer w-[89px] text-white rounded-md hover:opacity-90 disabled:opacity-50 flex justify-center items-center"
+                    className="px-4 py-2 text-sm bg-primary cursor-pointer w-[89px] text-white rounded-md hover:opacity-90 disabled:opacity-50 flex justify-center items-center"
                   >
                     {loading ? (
                       <ImSpinner9 className=" animate-spin text-lg" />

@@ -7,7 +7,7 @@ const Navbar = () => {
     <section className="flex  justify-between  items-center py-2 border-b px-[3%] border-b-gray-200">
       {/* Left  */}
       <section className="flex items-center gap-x-2 text-2xl  md:text-3xl">
-        <TbBrandBooking className=" text-3xl  md:text-4xl " />
+        <TbBrandBooking className=" text-3xl  md:text-4xl text-primary " />
         Booking
       </section>
 

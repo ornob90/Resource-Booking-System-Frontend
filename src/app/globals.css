@@ -3,6 +3,9 @@
 @theme {
   /* Color  */
   --color-dark: #181818;
+  --color-background: #F8FAFC;
+  --color-primary: #2563EB;
+  --color-darkgray: #1F2937;
 
   /* Spacing  */
   --spacing-display-width: 1800px;
