@@ -12,6 +12,7 @@ import { revalidateTagServerAction } from "@/actions/globals.actions";
 import { structureQuery } from "@/utils/query-params.utils";
 import axios from "axios";
 import ResourceDropdown from "../shared/ResourceDropdown";
+import { useRouter } from "next/navigation";
 
 type BookingFormInputs = {
   resource: string;
@@ -25,6 +26,8 @@ const AddBookingBtn = () => {
   const [loading, setLoading] = useState(false);
   const [resource, setResource] = useState("");
   const { register, handleSubmit, reset } = useForm<BookingFormInputs>();
+
+  const router = useRouter()
 
   const searchParams = useSearchParamsObject();
 
@@ -68,10 +71,11 @@ const AddBookingBtn = () => {
       const updatedParams = { ...searchParams, page: "1", limit: '10' };
       const tagKey = new URLSearchParams(updatedParams).toString();
       await revalidateTagServerAction(`get-bookings`);
+      // router.refresh()
 
       // ✅ Update browser URL to ?...&page=1
-      const url = structureQuery(searchParams, "page", "1");
-      window.history.replaceState(null, "", url);
+      // const url = structureQuery(searchParams, "page", "1");
+      // window.history.replaceState(null, "", url);
 
       setIsOpen(false);
       reset();
