@@ -2,6 +2,11 @@
 
 This is a **Next.js** project for a Resource Booking System, featuring both server and client components for optimal performance and user experience.
 
+## Project Link
+```
+    https://resource-booking-system-frontend.vercel.app/
+```
+
 ## Key Features
 
 - **Booking Management:** View, create, and delete bookings for various resources (meeting rooms, labs, etc.).
