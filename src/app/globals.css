@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  
   /* Color  */
   --color-dark: #181818;
 
   /* Spacing  */
   --spacing-display-width: 1800px;
+}
 
+@layer {
+  input {
+    @apply focus:border-gray-400 focus:outline-gray-300
+  }
 }

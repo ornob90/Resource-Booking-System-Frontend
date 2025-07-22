@@ -3,8 +3,14 @@ import React from "react";
 import BookingRow from "./BookingRow";
 import { Booking } from "@/types/booking.types";
 
-const BookingsTable = () => {
-  const bookings = dummyBookings;
+interface BookingsTableProps {
+  bookings: Booking[];
+}
+
+const BookingsTable = ({ bookings = [] }: BookingsTableProps) => {
+  //   const bookings = dummyBookings;
+
+    // console.log('bookings in table', bookings) 
 
   return (
     <section className="px-6 py-3 shadow-sm border  border-gray-200 bg-gray-50 rounded-xl">

@@ -16,7 +16,7 @@ const Tab = ({ status }: TabProps) => {
           className={` px-4 border-b-2 flex justify-center items-center py-2 min-w-[116px]  duration-200 cursor-pointer ${
             status === tab?.name
               ? " font-medium  border-b-dark"
-              : " border-b-white font-normal  hover:border-b-dark"
+              : " border-b-white font-normal  hover:border-b-dark/60"
           }`}
         >
           {tab.name}
