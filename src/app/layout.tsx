@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} bg-background  antialiased`}>
+      <body className={`${poppins.className} bg-background  min-h-screen antialiased`}>
         <section className=" mx-auto lg:max-w-display-width ">
           <Providers>{children}</Providers>
         </section>

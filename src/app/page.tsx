@@ -72,9 +72,9 @@ const Page = async ({ searchParams }: PageProps) => {
   const hasNextPage = page * LIMIT < filteredBookings.length;
 
   return (
-    <section className="space-y-4 pb-4" id="booking-home-page">
+    <section className=" flex flex-col gap-y-4 pb-4 min-h-screen" id="booking-home-page">
       <Navbar />
-      <section className="space-y-4 px-[3%]">
+      <section className="space-y-4 px-[3%] flex-1">
         <section className="  flex flex-col gap-y-5 p-4 bg-white rounded-lg shadow-sm border  border-gray-200">
           <div className="flex flex-col gap-4  md:flex-row md:justify-between md:items-center">
             <Tab status={status} />
