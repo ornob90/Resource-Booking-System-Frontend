@@ -43,7 +43,7 @@ const CheckAvailableSlots = () => {
       <button
         onClick={handleCheck}
         disabled={loading}
-        className="flex justify-center items-center gap-x-2 text-sm text-nowrap px-4 py-2 border-dark text-black border-2 rounded-full cursor-pointer hover:opacity-90 active:scale-95 duration-200 disabled:opacity-50 w-[212px]"
+        className="flex justify-center items-center gap-x-2 text-sm text-nowrap px-4 py-2 border-dark text-black border-2 rounded-full cursor-pointer hover:opacity-90 active:scale-95 duration-200 disabled:opacity-50 md:w-[212px]"
       >
         {loading ? (
           <>

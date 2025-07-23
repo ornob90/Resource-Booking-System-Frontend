@@ -1,9 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server";
-
-"use server";
-
-import { AvailableSlotsResult } from "@/types/booking.types";
 import { getTimezone } from "./globals.actions";
 
 type GetBookingsParams = {

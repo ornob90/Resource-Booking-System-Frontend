@@ -5,6 +5,7 @@ import BookingsTable from "@/components/bookings/BookingsTable";
 import BookingTablePagination from "@/components/bookings/BookingTablePagination";
 import CheckAvailableSlots from "@/components/bookings/CheckAvailableSlots";
 import Tab from "@/components/bookings/Tab";
+import Footer from "@/components/footer/Footer";
 import Navbar from "@/components/navbar/Navbar";
 import { tabs } from "@/data/bookings.data";
 import { Booking } from "@/types/booking.types";
@@ -96,6 +97,8 @@ const Page = async ({ searchParams }: PageProps) => {
           />
         </section>
       </section>
+
+      <Footer />
     </section>
   );
 };

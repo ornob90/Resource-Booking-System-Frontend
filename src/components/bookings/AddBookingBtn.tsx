@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import React, { useState } from "react";
@@ -9,7 +10,6 @@ import { useSearchParamsObject } from "@/hooks/useSearchParamsObject";
 import { ImSpinner9 } from "react-icons/im";
 import toast from "react-hot-toast";
 import { revalidateTagServerAction } from "@/actions/globals.actions";
-import { structureQuery } from "@/utils/query-params.utils";
 import axios from "axios";
 import ResourceDropdown from "../shared/ResourceDropdown";
 import { useRouter } from "next/navigation";
@@ -26,8 +26,6 @@ const AddBookingBtn = () => {
   const [loading, setLoading] = useState(false);
   const [resource, setResource] = useState("");
   const { register, handleSubmit, reset } = useForm<BookingFormInputs>();
-
-  const router = useRouter()
 
   const searchParams = useSearchParamsObject();
 
