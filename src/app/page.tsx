@@ -45,7 +45,7 @@ const Page = async ({ searchParams }: PageProps) => {
   // console.log('queryParams?.resource', queryParams?.resource?.replace(/\+/g, " "))
 
   // Fetch paginated bookings from server
-  const { bookings: dbBookings, analytics = {} } = await getBookings({
+  const { bookings: dbBookings, analytics = {}, total  } = await getBookings({
     page,
     limit: LIMIT,
     resource: queryParams?.resource,
@@ -73,11 +73,14 @@ const Page = async ({ searchParams }: PageProps) => {
   const hasNextPage = page * LIMIT < filteredBookings.length;
 
   return (
-    <section className=" flex flex-col gap-y-4 pb-4 min-h-screen" id="booking-home-page">
+    <section
+      className=" flex flex-col gap-y-4 pb-4 min-h-screen"
+      id="booking-home-page"
+    >
       <Navbar />
       <section className="space-y-4 px-[3%] flex-1">
         <section>
-          <BookingAnalytics analytics={analytics}/>
+          <BookingAnalytics analytics={analytics} />
         </section>
         <section className="  flex flex-col gap-y-5 p-4 bg-white rounded-lg shadow-sm border  border-gray-200">
           <div className="flex flex-col gap-4  md:flex-row md:justify-between md:items-center">
@@ -88,17 +91,19 @@ const Page = async ({ searchParams }: PageProps) => {
             </div>
           </div>
           <BookingFilters />
-        </section>
-        <section className=" flex flex-col gap-y-2">
-          <section className="  max-w-full   overflow-x-auto">
-            <BookingsTable bookings={paginatedBookings} />
+          <section className=" flex flex-col gap-y-2">
+            <section className="  max-w-full   overflow-x-auto">
+              <BookingsTable bookings={paginatedBookings} />
+            </section>
+            <BookingTablePagination
+              hasNextPage={hasNextPage}
+              hasPrevPage={hasPrevPage}
+              page={`${page}`}
+              queryParams={queryParams}
+              total={total}
+              currentCount={dbBookings?.length}
+            />
           </section>
-          <BookingTablePagination
-            hasNextPage={hasNextPage}
-            hasPrevPage={hasPrevPage}
-            page={`${page}`}
-            queryParams={queryParams}
-          />
         </section>
       </section>
 

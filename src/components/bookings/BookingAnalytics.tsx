@@ -43,10 +43,10 @@ const BookingAnalytics = ({ analytics }: BookingAnalyticsProps) => {
 function AnalyticBox({ title, value, icon }: AnalyticBoxProps) {
   return (
     <div className="bg-white p-4 shadow-sm border space-y-2 border-gray-100 rounded-xl">
-      <h3 className=" text-xl md:text-2xl  font-medium flex items-center gap-x-2 ">
+      <h3 className="  font-medium text-darkgray  text-sm md:text-base flex items-center gap-x-2 ">
         {title} {icon}
       </h3>
-      <p className=" text-sm md:text-base">{value}</p>
+      <p className=" text-xl md:text-2xl  text-end">{value}</p>
     </div>
   );
 }

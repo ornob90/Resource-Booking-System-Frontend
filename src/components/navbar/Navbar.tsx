@@ -11,7 +11,10 @@ const Navbar = () => {
         Booking
       </section>
 
-      <Avatar />
+      <section className="flex text-darkgray  font-medium justify-end items-center gap-x-2">
+        <p className="  hidden sm:block">Kazi Towfiq</p>
+        <Avatar />
+      </section>
     </section>
   );
 };
