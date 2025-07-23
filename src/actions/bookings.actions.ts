@@ -16,10 +16,12 @@ export async function getBookings({
 }: GetBookingsParams) {
   const query = new URLSearchParams();
 
-  console.log('getTimezone()', await getTimezone())
+  const timezone = await getTimezone();
 
   query.set("page", page.toString());
   query.set("limit", limit.toString());
+
+  if (timezone) query.set("timezone", timezone);
 
   if (resource) query.set("resource", resource);
   if (date) query.set("date", date);

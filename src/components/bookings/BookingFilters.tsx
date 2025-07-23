@@ -16,8 +16,8 @@ const BookingFilters = () => {
   };
 
   return (
-    <section className="flex items-center gap-x-2 mb-2">
-      <section className="w-[250px]">
+    <section className="flex max-[404px]:flex-col  items-center gap-2 mb-2">
+      <section className="max-[404px]:w-full w-[250px]">
         <ResourceDropdown
           value={resource}
           onChange={(value) => handleQueryChange("resource", value)}
@@ -28,7 +28,7 @@ const BookingFilters = () => {
 
       <input
         type="date"
-        className="border border-gray-200 px-4 py-2 text-sm placeholder:text-sm rounded-md w-[250px]"
+        className="border max-[404px]:w-full border-gray-200 px-4 py-2 text-sm placeholder:text-sm rounded-md w-[250px]"
         value={date}
         onChange={(e) => handleQueryChange("date", e.target.value)}
       />
